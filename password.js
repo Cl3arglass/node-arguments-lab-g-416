@@ -9,8 +9,23 @@ function generatePassword(len) {
     return retVal;
 }
 
-var times = process.argv[1];
+var length = 10,
+  number = 1
+var argv = process.argv
 
-for(var i=0; i < times; i++){
-    console.log(generatePassword(process.argv[0]))
+if (!argv[2] || !argv[3]) {
+  console.log('Please provide an argument, e.g., 5 or 5 10')
+  process.exit(1)
 }
+if (argv[2]) {
+  length = parseInt(argv[2], 10)
+}
+if (argv[3]) {
+  number = parseInt(argv[3], 10)
+}
+
+for (var i = 1; i <=number; i++) {
+  console.log(generatePassword(length))
+}
+
+process.exit(0)
