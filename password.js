@@ -1,2 +1,16 @@
 // code solution here
-console.log(process.argv)
+function generatePassword(len) {
+    var length = len,
+        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+        retVal = "";
+    for (var i = 0, n = charset.length; i < length; ++i) {
+        retVal += charset.charAt(Math.floor(Math.random() * n));
+    }
+    return retVal;
+}
+
+var times = process.argv[1];
+
+for(var i=0; i < times; i++){
+    console.log(generatePassword(process.argv[0]))
+}
